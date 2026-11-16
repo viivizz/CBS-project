@@ -132,7 +132,10 @@ MAILERS = {
     },
 }
 
-#Fix 4:
+# Vulnerable 4:
+# No login attempt limiting
+
+# Fix 4:
 AUTHENTICATION_BACKENDS = [
     'axes.backends.AxesStandaloneBackend',
     'django.contrib.auth.backends.ModelBackend',
