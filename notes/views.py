@@ -13,6 +13,9 @@ cipher = Fernet(key.encode()) if key else None
 @login_required
 def home(request):
     search = request.GET.get("search")
+    #Vulnerable 1: 
+    #notes = Note.objects.all()
+    #Fix 1:
     notes = Note.objects.filter(user=request.user)
     #Vulnerable 3:
     #if search:
