@@ -39,6 +39,8 @@ def home(request):
 
         #Fix 2:
         encrypted_content = cipher.encrypt(content.encode()).decode()
+        # Vulnerable 2:
+        # Note.objects.create(user=request.user, title=title, content=content)   
         Note.objects.create(user=request.user, title=title, content=encrypted_content)
         return redirect("home")
 
